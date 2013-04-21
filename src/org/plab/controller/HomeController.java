@@ -8,9 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.plab.service.UserManager;
+import org.plab.service.UserManagerImpl;
+import org.plab.vo.User;
 // getcurrentuser는 basecontroller에서 처리!
 public class HomeController extends HttpServlet {
-
+	
+	private UserManager userManager = new UserManagerImpl();
+	
 	protected void doProcess(HttpServletRequest request,HttpServletResponse response) 
 			throws ServletException, IOException {
 		
@@ -25,7 +31,14 @@ public class HomeController extends HttpServlet {
 		} else if (requestURI.equals("/login")) {
 
 			System.out.println("requesturi in homecontrolelr : " + requestURI);
-			dispatcherPath = "/dashboard.jsp";
+			User targetUser = userManager.getUserByEmail(request.getParameter("email"));
+ 
+			if(targetUser.getPassword().equals(request.getParameter("password"))) {
+				// session에 저장하는 로직이 있어야 함
+				dispatcherPath = "/WEB-INF/view/bookmark/dashboard.jsp";
+			} else {
+				System.out.println("not registered user or incorrect input");
+			}
 
 		} else if (requestURI.equals("/logout")) {
 

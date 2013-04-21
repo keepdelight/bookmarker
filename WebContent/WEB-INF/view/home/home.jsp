@@ -24,9 +24,9 @@
 <div class="container-narrow">
 
     <div class="masthead">
-        <form class="navbar-form pull-right">
-            <input class="span2" type="text" placeholder="email@bookmarker.io"/>
-            <input class="span2" type="password" placeholder="password"/>
+        <form action="/login" method="post" class="navbar-form pull-right">
+            <input name="email" class="span2" type="text" placeholder="email@bookmarker.io"/>
+            <input name="password" class="span2" type="password" placeholder="password"/>
             <button type="submit" class="btn btn-primary btnSign-in" style="">Sign in</button>
         </form>
         <h3 class="muted"><a href="bookmarker.html">Bookmarker</a></h3>

@@ -9,11 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
+import org.plab.service.UserManager;
+import org.plab.service.UserManagerImpl;
 import org.plab.vo.User;
 import org.plab.vo.UserListVO;
 
 public class UserController extends HttpServlet {
 
+	private UserManager userManager = new UserManagerImpl();
+	
 	@SuppressWarnings("unchecked")
 	protected void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -33,10 +37,9 @@ public class UserController extends HttpServlet {
 				String name = request.getParameter("username");
 				
 				User paramUser = new User(email, password, name);
-				UserListVO userList = UserListVO.getInstance();
-				userList.getUserList().add(paramUser);
+				UserListVO userListVO = userManager.addUser(paramUser); 
 				
-				System.out.println("added user : " + userList.getUserList().get(1).getEmail());
+				System.out.println("added user : " + userListVO.getUserList().get(1).getEmail());
 				JSONObject obj = new JSONObject();
 				obj.put("returnCode", 100);
 			}
