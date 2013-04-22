@@ -1,14 +1,14 @@
 package org.plab.service;
 
-import org.plab.vo.User;
+import org.plab.vo.UserVO;
 import org.plab.vo.UserListVO;
 
 public interface UserManager {
 	
 	UserListVO getUserList();
 	
-	UserListVO addUser(User user);
+	UserListVO addUser(UserVO user);
 	
-	User getUserByEmail(String email);
+	UserVO getUserByEmail(String email);
 	
 }

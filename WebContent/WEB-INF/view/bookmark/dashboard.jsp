@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page import="org.plab.vo.UserVO" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,6 +24,9 @@
 <script>
 	console.log(location.pathname);
 </script>
+<%
+	UserVO currentUser = (UserVO)request.getSession().getAttribute("currentUser");
+%>
 <div class="container-narrow">
 
     <div class="masthead">
@@ -39,13 +43,13 @@
             <li>
                 <div class="btn-group">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="icon-user"></i> Username
+                        <i class="icon-user"></i> <%= currentUser.getName() %>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="profile-edit.html"><i class="icon-pencil"></i> Edit</a></li>
                         <li class="divider"></li>
-                        <li><a href="bookmarker.html"><i class="icon-off"></i> Sign out</a></li>
+                        <li><a href="/logout"><i class="icon-off"></i> Sign out</a></li>
                     </ul>
                 </div>
             </li>

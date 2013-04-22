@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.plab.vo.User;
+import org.plab.vo.UserVO;
 import org.plab.vo.UserListVO;
 
 public class InitSampleDataFilter implements Filter {
@@ -27,7 +27,7 @@ public class InitSampleDataFilter implements Filter {
 	
 		// create sample data
 		UserListVO userList = UserListVO.getInstance();
-		User sampleUser = new User("keepdelight", "1234", "keepdelight");
+		UserVO sampleUser = new UserVO("keepdelight@test.com", "1234", "keepdelight");
 		userList.getUserList().add(sampleUser);
 		
 		filterChain.doFilter(request, response);

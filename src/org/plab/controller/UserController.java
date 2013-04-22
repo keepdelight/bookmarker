@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.plab.service.UserManager;
 import org.plab.service.UserManagerImpl;
-import org.plab.vo.User;
+import org.plab.vo.UserVO;
 import org.plab.vo.UserListVO;
 
 public class UserController extends HttpServlet {
@@ -36,7 +36,7 @@ public class UserController extends HttpServlet {
 				String password = request.getParameter("password");
 				String name = request.getParameter("username");
 				
-				User paramUser = new User(email, password, name);
+				UserVO paramUser = new UserVO(email, password, name);
 				UserListVO userListVO = userManager.addUser(paramUser); 
 				
 				System.out.println("added user : " + userListVO.getUserList().get(1).getEmail());

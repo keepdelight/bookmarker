@@ -1,6 +1,6 @@
 package org.plab.vo;
 
-public class User {
+public class UserVO {
 	
 	private String email;
 	
@@ -8,9 +8,9 @@ public class User {
 	
 	private String name;
 
-	public User() { }
+	public UserVO() { }
 	
-	public User(String email, String password, String name) {
+	public UserVO(String email, String password, String name) {
 		this.email = email;
 		this.password = password;
 		this.name = name;

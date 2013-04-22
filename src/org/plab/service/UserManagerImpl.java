@@ -2,7 +2,7 @@ package org.plab.service;
 
 import java.util.List;
 
-import org.plab.vo.User;
+import org.plab.vo.UserVO;
 import org.plab.vo.UserListVO;
 
 public class UserManagerImpl implements UserManager {
@@ -13,7 +13,7 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public UserListVO addUser(User user) {
+	public UserListVO addUser(UserVO user) {
 		UserListVO userListVO = UserListVO.getInstance();
 		userListVO.getUserList().add(user);
 		
@@ -21,10 +21,10 @@ public class UserManagerImpl implements UserManager {
 	}
 
 	@Override
-	public User getUserByEmail(String email) {
-		List<User> userList = UserListVO.getInstance().getUserList();
-		User targetUser = null;
-		for(User user : userList) {
+	public UserVO getUserByEmail(String email) {
+		List<UserVO> userList = UserListVO.getInstance().getUserList();
+		UserVO targetUser = null;
+		for(UserVO user : userList) {
 			if(user.getEmail().equals(email)) {
 				targetUser = user;
 			}

@@ -7,21 +7,21 @@ public class UserListVO {
 	
 	private static UserListVO userListVO = new UserListVO();
 	
-	private List<User> userList;
+	private List<UserVO> userList;
 	
 	private UserListVO() {
-		userList = new ArrayList<User>();
+		userList = new ArrayList<UserVO>();
 	}
 	
 	public static UserListVO getInstance() {
 		return userListVO;
 	}
 	
-	public List<User> getUserList() {
+	public List<UserVO> getUserList() {
 		return userList;
 	}
 
-	public void setUserList(List<User> userList) {
+	public void setUserList(List<UserVO> userList) {
 		this.userList = userList;
 	}
 }
