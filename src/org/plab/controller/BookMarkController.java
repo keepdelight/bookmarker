@@ -17,8 +17,18 @@ public class BookMarkController extends BaseController {
 		String requestURI = request.getRequestURI();
 		String dispatcherPath = null;
 		
-		if(requestURI.equals("/bookmark/home")) {
+		if(getCurrentUser(request) == null) {
+			response.sendRedirect("/home");
+			return;
+		}
+		
+		if (requestURI.equals("/bookmark/home")) {
 			dispatcherPath = "/WEB-INF/view/bookmark/dashboard.jsp";
+		}
+		else if (requestURI.equals("/bookmark/add")) {
+			if(request.getMethod().equals("GET")) {
+				dispatcherPath = "/WEB-INF/view/bookmark/form.jsp";
+			}
 		}
 		
 		if(dispatcherPath != null) {

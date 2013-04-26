@@ -8,9 +8,9 @@
     <title>Bookmarker</title>
 
     <!-- Le styles -->
-    <link href="../resources/css/bootstrap.css" rel="stylesheet"/>
-    <link href="../resources/css/bookmarker.css" rel="stylesheet"/>
-    <link href="../resources/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/bookmarker.css" rel="stylesheet"/>
+    <link href="/resources/css/bootstrap-responsive.css" rel="stylesheet"/>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -18,18 +18,18 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="../resources/ico/favicon.png">
+    <link rel="shortcut icon" href="/resources/ico/favicon.png">
 </head>
 <body>
 <div class="container-narrow">
 
     <div class="masthead">
-        <form class="navbar-form pull-right">
-            <input class="span2" type="text" placeholder="email@bookmarker.io"/>
+        <form class="navbar-form pull-right" action="/login" method="post">
+            <input class="span2" type="text" placeholder="input your email"/>
             <input class="span2" type="password" placeholder="password"/>
             <button type="submit" class="btn btn-primary btnSign-in" style="">Sign in</button>
         </form>
-        <h3 class="muted"><a href="bookmarker.html">Bookmarker</a></h3>
+        <h3 class="muted"><a href="/home">Bookmarker</a></h3>
     </div>
 
     <hr>

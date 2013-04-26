@@ -27,8 +27,10 @@ public class InitSampleDataFilter implements Filter {
 	
 		// create sample data
 		UserListVO userList = UserListVO.getInstance();
-		UserVO sampleUser = new UserVO("keepdelight@test.com", "1234", "keepdelight");
-		userList.getUserList().add(sampleUser);
+		if(userList.getUserList().size() == 0) {
+			UserVO sampleUser = new UserVO("keepdelight@test.com", "1234", "keepdelight");
+			userList.getUserList().add(sampleUser);
+		}
 		
 		filterChain.doFilter(request, response);
 		

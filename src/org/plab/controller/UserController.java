@@ -17,7 +17,7 @@ import org.plab.vo.UserListVO;
 public class UserController extends HttpServlet {
 
 	private UserManager userManager = new UserManagerImpl();
-	
+		
 	@SuppressWarnings("unchecked")
 	protected void doProcess(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class UserController extends HttpServlet {
 
 		if (requestURI.equals("/user/sign_up")) {
 			if(request.getMethod().equals("GET")) {
-				dispatcherPath = "/WEB-INF/view/user/sign-up.jsp";
+				dispatcherPath = "/WEB-INF/view/user/sign_up.jsp";
 			} else {
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
@@ -45,7 +45,20 @@ public class UserController extends HttpServlet {
 			}
 			
 		} else if (requestURI.equals("/user/update")) {
-
+			if(request.getMethod().equals("GET")) {
+				dispatcherPath = "/WEB-INF/view/user/profile_edit.jsp";
+			} else {
+				String email = request.getParameter("email");
+				String password = request.getParameter("password");
+				String username = request.getParameter("username");
+				
+				UserVO user = userManager.getUserByEmail(email);
+				user.setPassword(password);
+				user.setName(username);
+				
+				response.sendRedirect("/bookmark/home");
+				return;
+			}
 		}
 		
 		if(dispatcherPath != null) {

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="org.plab.vo.UserVO" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,9 +8,9 @@
     <title>Bookmarker</title>
 
     <!-- Le styles -->
-    <link href="./resources/css/bootstrap.css" rel="stylesheet"/>
-    <link href="./resources/css/bookmarker.css" rel="stylesheet"/>
-    <link href="./resources/css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/resources/css/bookmarker.css" rel="stylesheet"/>
+    <link href="/resources/css/bootstrap-responsive.css" rel="stylesheet"/>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -18,18 +18,18 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="./resources/ico/favicon.png">
+    <link rel="shortcut icon" href="/resources/ico/favicon.png">
 </head>
 <body>
 <div class="container-narrow">
 
     <div class="masthead">
         <form action="/login" method="post" class="navbar-form pull-right">
-            <input name="email" class="span2" type="text" placeholder="email@bookmarker.io"/>
+            <input name="email" class="span2" type="text" placeholder="input your email"/>
             <input name="password" class="span2" type="password" placeholder="password"/>
             <button type="submit" class="btn btn-primary btnSign-in" style="">Sign in</button>
         </form>
-        <h3 class="muted"><a href="bookmarker.html">Bookmarker</a></h3>
+        <h3 class="muted"><a href="/bookmark/home">Bookmarker</a></h3>
     </div>
 
     <hr>

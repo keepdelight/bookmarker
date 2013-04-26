@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.plab.vo.UserVO" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,9 +24,6 @@
 	UserVO currentUser = (UserVO)request.getSession().getAttribute("currentUser");
 %>
 <body>
-<script>
-	console.log(location.pathname);
-</script>
 <div class="container-narrow">
 
     <div class="masthead">
@@ -62,54 +59,40 @@
     <div class="row-fluid">
         <div class="span9">
             <blockquote>
-                <p>Bookmark List</p>
+                <p>사용자 정보를 수정합니다.</p>
             </blockquote>
-            <table class="table bookmarkList">
-            <colgroup>
-                <col/>
-                <col style="width: 80px;">
-            </colgroup>
-            <tbody>
-            <tr>
-                <td>
-                    <h4>북마크명</h4>
-                    <p><a href="#">springframework.org</a></p>
-                    <i class="icon-tags"></i> Java, Framework
-                </td>
-                <td>
-                    <a class="btn btn-small" href="form.html">Edit</a><br/>
-                    <i class="icon-eye-close"></i> private
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>북마크명</h4>
-                    <p><a href="#">www.scala-lang.org</a></p>
-                    <i class="icon-tags"></i> Scala
-                </td>
-                <td><a class="btn btn-small" href="form.html">Edit</a><br/></td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>북마크명</h4>
-                    <p><a href="#">www.python.org</a></p>
-                    <i class="icon-tags"></i> Python
-                </td>
-                <td><a class="btn btn-small" href="form.html">Edit</a><br/></td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>북마크명</h4>
-                    <p><a href="#">www.java.com/ko</a></p>
-                    <i class="icon-tags"></i> Java
-                </td>
-                <td>
-                    <a class="btn btn-small" href="form.html">Edit</a><br/>
-                    <i class="icon-eye-close"></i> private
-                </td>
-            </tr>
-            </tbody>
-            </table>
+            <form class="form-horizontal" action="/user/update" method="post">
+                <div class="control-group">
+                    <label class="control-label">Email</label>
+                    <div class="controls">
+                        <input class="input-xlarge input-block-level uneditable-input" name="email" value="<%= currentUser.getEmail() %>" readonly />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="password">비밀번호</label>
+                    <div class="controls">
+                        <input type="password" name="password" class="input-block-level"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="cpassword">비밀번호 확인</label>
+                    <div class="controls">
+                        <input type="password" name="cpassword" class="input-block-level"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="username">이름</label>
+                    <div class="controls">
+                        <input type="text" name="username" class="input-block-level"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls pull-right">
+                        <a class="btn" href="/bookmarker/home">취소</a>
+                        <button type="submit" class="btn btn-primary">수정</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="span3">
             <blockquote>

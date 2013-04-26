@@ -36,19 +36,23 @@ public class HomeController extends BaseController {
 			}
 			
 		} else if (requestURI.equals("/login")) {
-
-			System.out.println("requesturi in homecontrolelr : " + requestURI);
-			UserVO targetUser = userManager.getUserByEmail(request.getParameter("email"));
- 
-			if(targetUser.getPassword().equals(request.getParameter("password"))) {
-				// session에 저장하는 로직이 있어야 함
-				HttpSession session = request.getSession();
-				session.setAttribute("currentUser", targetUser);
-//				dispatcherPath = "/WEB-INF/view/bookmark/dashboard.jsp";
-				response.sendRedirect("/bookmark/home");
+			if(request.getMethod().equals("GET")) {
+				response.sendRedirect("/home");
 				return;
 			} else {
-				System.out.println("not registered user or incorrect input");
+				System.out.println("requesturi in homecontrolelr : " + requestURI);
+				UserVO targetUser = userManager.getUserByEmail(request.getParameter("email"));
+	 
+				if(targetUser.getPassword().equals(request.getParameter("password"))) {
+					// session에 저장하는 로직이 있어야 함
+					HttpSession session = request.getSession();
+					session.setAttribute("currentUser", targetUser);
+	//				dispatcherPath = "/WEB-INF/view/bookmark/dashboard.jsp";
+					response.sendRedirect("/bookmark/home");
+					return;
+				} else {
+					System.out.println("not registered user or incorrect input");
+				}
 			}
 
 		} else if (requestURI.equals("/logout")) {
